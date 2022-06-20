@@ -1,0 +1,51 @@
+.clickable {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    align-items: stretch;
+    width: calc(33% - 28px);
+    background: #FFFFFF;
+    gap: 10px;
+    box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+}
+
+.clickable:hover {
+    background-color: rgba(92, 92, 92, 0.411);
+    cursor: pointer;
+}
+
+.poster > * {
+    border-radius: 10px;
+    box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.25);
+    height: 300px;
+    width: 200px;
+}
+
+.double-detail {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.double-detail > * {
+    margin: auto 0;
+}
+
+@media (max-width: 768px) {
+    .poster > * {
+        height: 200px;
+        width: 150px;
+    }
+
+    .clickable {
+        font-size: calc(20px - 1vmin);
+        width: calc(50% - 28px);
+    }
+}
+
+@media (max-width: 425px) {
+    .clickable {
+        width: 100%;
+    }
+}
