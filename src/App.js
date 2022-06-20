@@ -8,6 +8,7 @@ function App() {
 	const [movie, setMovie] = useState([]);
 	const [searchName, setSearchname] = useState("");
 	let willBuyMovie = [];
+	let totalPrice = 0;
 
 	const API_URL = "https://api.themoviedb.org/3/search/movie?api_key=d04e8e033f6b22270b4b6a7d2fb0abe0&query=a";
 	const getDatas = async () => {
@@ -40,6 +41,20 @@ function App() {
 		willBuyMovie.push({movieId: id, moviePoster: poster, movieName: name, moviePrice: price});
 		console.log(willBuyMovie);
 		localStorage.setItem("selectMovie", JSON.stringify(willBuyMovie));
+		for(let i = 0; i < willBuyMovie.length; i++)
+		{
+			totalPrice += willBuyMovie[i].moviePrice;
+		}
+		console.log("Totalprice " + totalPrice + " Baht");
+		if(willBuyMovie.length > 5)
+		{
+			console.log("OH! mega special discount : " + Math.floor(totalPrice*0.8) + " Baht");
+		}
+		else if(willBuyMovie.length > 3)
+		{
+			console.log("OH! special discount : " + Math.floor(totalPrice * 0.9) +" Baht");
+		}
+		totalPrice = 0;
 	}
 
 	useEffect(() => {
